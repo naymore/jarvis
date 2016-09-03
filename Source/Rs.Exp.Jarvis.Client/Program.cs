@@ -1,0 +1,41 @@
+﻿using System.Device.Location;
+using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
+using Rs.Exp.Jarvis.Core.Movement;
+using Rs.Exp.Jarvis.Core.Navigation;
+using Rs.Exp.Jarvis.Core.Navigation.Models;
+using Rs.Exp.Jarvis.Navigation.Google;
+
+namespace Rs.Exp.Jarvis.Client
+{
+    public class Program
+    {
+        public static int Main(string[] args)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-us");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+            // problem 0: Get POI coordinates
+            // TODO.
+
+            // problem 1: Get a route to a destination
+            INavigator navigator = new GoogleWalkingNavigator();
+            GeoCoordinate currentLocation = new GeoCoordinate(latitude: 48.642050, longitude: 9.458333);
+            GeoCoordinate destination = new GeoCoordinate (latitude: 48.649047, longitude: 9.448158);
+
+            var x = navigator.GetDirectionsAsync(currentLocation, destination);
+            x.Wait();
+
+            x = navigator.GetDirectionsAsync(currentLocation, destination);
+            NavigationRoute navigationRoute = x.Result;
+
+            // problem 2: walk along that route to destination
+            IMoveStrategy moveStrategy = new WalkMoveStrategy();
+            Task walker = Task.Run(() => moveStrategy.Move(navigationRoute));
+
+            walker.Wait();
+
+            return 0;
+        }
+    }
+}
