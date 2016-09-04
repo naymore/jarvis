@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Movement\ConsoleLocationReporter.cs" />
+    <Compile Include="Movement\LocationProvider.cs" />
     <Compile Include="Movement\MoveStrategy.cs" />
     <Compile Include="Movement\WalkMoveStrategy.cs" />
     <Compile Include="Movement\GeodesyTools.cs" />

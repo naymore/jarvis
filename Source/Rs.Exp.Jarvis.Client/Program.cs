@@ -1,4 +1,5 @@
-﻿using System.Device.Location;
+﻿using System;
+using System.Device.Location;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,6 +32,17 @@ namespace Rs.Exp.Jarvis.Client
             Task walker = Task.Run(() => moveStrategy.Move(navigationRoute));
             walker.Wait();
 
+            ConsoleLocationReporter c1 = new ConsoleLocationReporter("reporter0001");
+            ConsoleLocationReporter c2 = new ConsoleLocationReporter("reporter0002");
+            LocationProvider locationProvider = new LocationProvider();
+
+            c1.Subscribe(locationProvider);
+            c2.Subscribe(locationProvider);
+
+            locationProvider.TrackLocation(destination);
+            locationProvider.EndTransmission();
+
+            Console.ReadKey();
             return 0;
         }
     }
