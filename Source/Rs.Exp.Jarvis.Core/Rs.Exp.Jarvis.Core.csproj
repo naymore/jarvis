@@ -47,12 +47,19 @@
   <ItemGroup>
     <Compile Include="Movement\MoveStrategy.cs" />
     <Compile Include="Movement\WalkMoveStrategy.cs" />
+    <Compile Include="Movement\GeodesyTools.cs" />
     <Compile Include="Navigation\Models\NavigationRoute.cs" />
     <None Include="Navigation\Models\GeoLocation.cs.obsolete" />
     <Compile Include="Navigation\INavigator.cs" />
     <Compile Include="Movement\IMoveStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contrib\Gavaghan.Geodesy\Gavaghan.Geodesy.csproj">
+      <Project>{FEF5CAD3-7F38-4801-849E-2F4F94607ABD}</Project>
+      <Name>Gavaghan.Geodesy</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

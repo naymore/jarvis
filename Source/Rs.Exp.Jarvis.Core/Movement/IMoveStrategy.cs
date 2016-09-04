@@ -1,9 +1,10 @@
-﻿using Rs.Exp.Jarvis.Core.Navigation.Models;
+﻿using System.Threading.Tasks;
+using Rs.Exp.Jarvis.Core.Navigation.Models;
 
 namespace Rs.Exp.Jarvis.Core.Movement
 {
     public interface IMoveStrategy
     {
-        void Move(NavigationRoute navigationRoute);
+        Task Move(NavigationRoute navigationRoute);
     }
 }

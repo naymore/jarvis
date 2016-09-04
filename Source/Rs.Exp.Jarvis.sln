@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rs.Exp.Jarvis.Navigation.Google", "Rs.Exp.Jarvis.Navigation.Google\Rs.Exp.Jarvis.Navigation.Google.csproj", "{41232C18-B18E-4345-92A6-E31CC448E055}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contrib", "Contrib", "{4B170DDC-3AA3-4808-99D8-57B7EDE77E1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gavaghan.Geodesy", "Contrib\Gavaghan.Geodesy\Gavaghan.Geodesy.csproj", "{FEF5CAD3-7F38-4801-849E-2F4F94607ABD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +36,15 @@ Global
 		{41232C18-B18E-4345-92A6-E31CC448E055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41232C18-B18E-4345-92A6-E31CC448E055}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41232C18-B18E-4345-92A6-E31CC448E055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF5CAD3-7F38-4801-849E-2F4F94607ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF5CAD3-7F38-4801-849E-2F4F94607ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF5CAD3-7F38-4801-849E-2F4F94607ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF5CAD3-7F38-4801-849E-2F4F94607ABD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FEF5CAD3-7F38-4801-849E-2F4F94607ABD} = {4B170DDC-3AA3-4808-99D8-57B7EDE77E1B}
 	EndGlobalSection
 EndGlobal
