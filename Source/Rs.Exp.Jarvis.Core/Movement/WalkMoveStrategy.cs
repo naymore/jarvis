@@ -1,14 +1,27 @@
-﻿using NLog;
+﻿using System;
+using System.Device.Location;
 
 namespace Rs.Exp.Jarvis.Core.Movement
 {
-    // NOTE: Design... observer pattern? use events on location changed? use consumer/producer for waypoints?
     public class WalkMoveStrategy : MoveStrategy
     {
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        protected override double MovementSpeed { get; set; } = 4.87;
 
-        public WalkMoveStrategy()
+        protected override double CalculateBearing(GeoCoordinate startingLocation, GeoCoordinate destinationLocation)
         {
+            // for example we could add a little zick-zack from time to time...
+            return base.CalculateBearing(startingLocation, destinationLocation);
+        }
+
+        public override void SetMovementSpeed(double movementSpeed)
+        {
+            if (movementSpeed <= 0)
+                throw new ArgumentException("Movement speed cannot be 0 or negative.", nameof(movementSpeed));
+
+            if (movementSpeed > 9)
+                throw new ArgumentException("Movement speed cannot be higher than 9.", nameof(movementSpeed));
+            
+            base.SetMovementSpeed(movementSpeed);
         }
     }
 }
