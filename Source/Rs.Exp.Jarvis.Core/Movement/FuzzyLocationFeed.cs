@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 
 namespace Rs.Exp.Jarvis.Core.Movement
 {
+    // see http://stackoverflow.com/questions/39356211/use-reactive-extensions-to-filter-on-significant-changes-in-observable-stream
     public class FuzzyLocationFeed : IObservable<GeoCoordinate>
     {
         private readonly IObservable<GeoCoordinate> _observable;

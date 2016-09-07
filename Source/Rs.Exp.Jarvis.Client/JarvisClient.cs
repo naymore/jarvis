@@ -43,10 +43,11 @@ namespace Rs.Exp.Jarvis.Client
                 PointOfInterest pointOfInterest = _poiProvider.GetPointOfInterest();
                 _logger.Trace("(POI) {0} ({1}, {2})", pointOfInterest.Name, pointOfInterest.Location.Latitude, pointOfInterest.Location.Longitude);
 
-                // simulate current location provider
+                // get route to POI
                 NavigationRoute navigationRoute = await _navigator.GetDirectionsAsync(currentLocation, pointOfInterest.Location);
                 _logger.Trace("(NAV) Found a route to {0}. Let's go ({1}m, {2}s)", pointOfInterest.Name, navigationRoute.Distance, navigationRoute.TravelTime);
 
+                // move
                 await _moveStrategy.Move(navigationRoute);
 
                 if (cancellationToken.IsCancellationRequested)

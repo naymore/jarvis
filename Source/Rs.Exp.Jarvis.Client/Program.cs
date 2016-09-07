@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using NLog;
 using Rs.Exp.Jarvis.Core.Movement;
 using Rs.Exp.Jarvis.Core.Navigation;
 using Rs.Exp.Jarvis.Core.Poi;
@@ -11,8 +12,12 @@ namespace Rs.Exp.Jarvis.Client
 {
     public class Program
     {
+        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
         public static int Main(string[] args)
         {
+            _logger.Info("Jarvis starting...");
+
             Thread.CurrentThread.CurrentCulture = new CultureInfo(1033);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(1033);
 
@@ -55,7 +60,7 @@ namespace Rs.Exp.Jarvis.Client
             {
             }
 
-            Console.WriteLine("Jarvis shutdown complete.");
+            _logger.Info("Jarvis shutdown complete.");
             return 0;
         }
     }

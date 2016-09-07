@@ -65,7 +65,6 @@ namespace Rs.Exp.Jarvis.Navigation.Google
 
                 _cache.Add(url, navigationRoute);
 
-                _logger.Trace("Returning navigation route...");
                 return navigationRoute;
             }
         }
