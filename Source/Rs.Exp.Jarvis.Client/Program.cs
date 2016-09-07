@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Rs.Exp.Jarvis.Core.Movement;
 using Rs.Exp.Jarvis.Core.Navigation;
+using Rs.Exp.Jarvis.Core.Poi;
 using Rs.Exp.Jarvis.Navigation.Google;
 
 namespace Rs.Exp.Jarvis.Client
@@ -18,12 +19,15 @@ namespace Rs.Exp.Jarvis.Client
             // COMPOSITION ROOT
             INavigator navigator = new GoogleWalkingNavigator();
             IMoveStrategy moveStrategy = new WalkMoveStrategy();
+            moveStrategy.SetMovementSpeed(25);
 
-            JarvisClient jarvis = new JarvisClient(navigator, moveStrategy);
+            IPoiProvider poiProvider = new FakePoiProvider();
+
+            JarvisClient jarvis = new JarvisClient(navigator, moveStrategy, poiProvider);
 
             // START
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-            Task jarvisRunner = Task.Run(() => jarvis.Run(), cancellationTokenSource.Token);
+            Task jarvisRunner = Task.Run(() => jarvis.Run(cancellationTokenSource.Token), cancellationTokenSource.Token);
 
             // management thread
             Task.Run(() =>

@@ -18,7 +18,7 @@ namespace Rs.Exp.Jarvis.Core.Movement
             if (movementSpeed <= 0)
                 throw new ArgumentException("Movement speed cannot be 0 or negative.", nameof(movementSpeed));
 
-            if (movementSpeed > 9)
+            if (movementSpeed > 50)
                 throw new ArgumentException("Movement speed cannot be higher than 9.", nameof(movementSpeed));
             
             base.SetMovementSpeed(movementSpeed);

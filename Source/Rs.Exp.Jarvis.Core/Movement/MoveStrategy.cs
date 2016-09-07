@@ -76,7 +76,7 @@ namespace Rs.Exp.Jarvis.Core.Movement
             double distanceToDestination = waypoint.GetDistanceTo(destinationLocation);
             //_logger.Trace("{0:0.0#}m to destination {1}.", distanceToDestination, destinationLocation);
 
-            await Task.Delay(500);
+            await Task.Delay(1300);
 
             if (distanceToDestination > StepLength)
             {

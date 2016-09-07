@@ -4,13 +4,13 @@ using NLog;
 
 namespace Rs.Exp.Jarvis.Core.Movement
 {
-    public class ConsoleLocationReporter : IObserver<GeoCoordinate>
+    public class TestLocationObserver : IObserver<GeoCoordinate>
     {
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         private IDisposable _unsubscriber;
 
-        public ConsoleLocationReporter(string name)
+        public TestLocationObserver(string name)
         {
             Name = name;
         }
