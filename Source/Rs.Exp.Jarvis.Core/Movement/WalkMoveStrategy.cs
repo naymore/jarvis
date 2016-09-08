@@ -15,7 +15,7 @@ namespace Rs.Exp.Jarvis.Core.Movement
 
         public override void SetMovementSpeed(double movementSpeed)
         {
-            if (movementSpeed <= 0)
+            if (movementSpeed < 0)
                 throw new ArgumentException("Movement speed cannot be 0 or negative.", nameof(movementSpeed));
 
             if (movementSpeed > 50)
